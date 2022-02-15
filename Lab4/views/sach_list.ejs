@@ -1,0 +1,29 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container col-8">
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>Hình</th>
+        <th>Tên sách</th>
+        <th>Giá</th>
+        <th>Loại</th>
+        <th>Hiện thị</th>
+        <th>Điều khiển</th>
+    </tr>
+    <% for (let c of list ) {  %>
+    <tr>
+        <td><%= c.id %> </td>        
+        <td><img src="/<%= c.urlHinh %>" width="48px" height="48px"/> </td>
+        <td><%= c.tenSach %> </td>
+        <td><%= c.gia %> </td>
+        <td><%= c.tenLoai %> </td>
+        <td><%= c.anHien==1 ? "Đang hiện" : "Đang ẩn"%> </td>
+        <td>
+            <a href="/sach/edit/<%= c.id %>">Sửa</a> &nbsp;
+            <a href="/sach/delete/<%= c.id %>">Xóa</a>
+        </td>
+    </tr>
+    <% } %>
+  </ul>
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết user</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="chitietuser"></div>
+    <script>
+      window
+        .fetch("http://localhost:3000/users/<%= id %>")
+        .then(function (res) {
+          if (!res.ok) {
+            throw new Error("Lỗi = " + res.status);
+          }
+          return res.json();
+        })
+        .then(function (data) {
+
+          let str = `<div class="card text-center"><div class="card-header">Thông tin chi tiết</div><div class="card-body">`;
+          str += `<h5 class="card-title">${data.ho} ${data.ten}</h5>`;
+          str += `<p class="card-text">
+            ${data.sothich}
+          </p>`;
+          str += `<a href="#" class="btn btn-primary">${data.email}</a></div>`;
+          str += `<div class="card-footer text-muted">${data.tinh}</div>`;
+          str += `</div>`;
+          document.getElementById("chitietuser").innerHTML = str;
+          console.log(data);
+        })
+        .catch(function (error) {
+          document.getElementById("chitietuser").innerHTML = "User is not defined";
+          console.log("Lỗi: ", error);
+        });
+    </script>
+  </body>
+</html>

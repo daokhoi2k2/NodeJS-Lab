@@ -1,0 +1,50 @@
+header.row {
+  height: 120px;
+}
+nav.row {
+  height: 60px;
+}
+main.row {
+  min-height: 500px;
+}
+footer.row {
+  height: 90px;
+}
+
+.bg-custom-1 {
+  background-color: #85144b;
+}
+
+.bg-custom-2 {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.limit-body {
+    height: 250px;
+    overflow: hidden;
+}
+
+.card {
+    cursor: pointer;
+    color: black;
+}
+
+.card:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.main-section{
+	padding: 15px;
+	background:#f1f1f1;
+}
+.custom-file-control::after {
+  content: "Choose file...";
+}
+.custom-file-control::before {
+  content: "Browse";
+}

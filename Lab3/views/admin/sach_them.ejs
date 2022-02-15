@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div
+          class="offset-lg-2 col-lg-8 col-sm-8 col-8 border rounded main-section"
+        >
+          <h3 class="text-center text-inverse">Thêm sách</h3>
+          <hr />
+          <form
+            class="container"
+            action="/admin/sachThem"
+            enctype="multipart/form-data"
+            method="POST"
+            id="needs-validation"
+          >
+            <div class="row">
+              <div class="col-lg-12 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="text-inverse" for="validationCustom01"
+                    >Tên sách</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="validationCustom01"
+                    required
+                    name="tenSach"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="text-inverse" for="inputEmail4">Giá</label>
+                  <input type="text" class="form-control" required name="gia" />
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse" for="select-menu"
+                    >Select any value</label
+                  >
+                  <select
+                    class="custom-select d-block form-control"
+                    id="image"
+                    required
+                    name="loai"
+                  >
+                    <% for(c of loaiSach) { %> 
+                      <option value="<%= c.id %>"><%= c.tenLoai %></option>
+                    <% } %>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-sm-12 col-12">
+                <div class="form-group purple-border">
+                  <label for="moTa">Mô tả</label>
+                  <textarea class="form-control" id="moTa" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label class="custom-file">
+                    <input
+                      type="file"
+                      id="file"
+                      class="form-control custom-file-input"
+                      required
+                      name="image"
+                    />
+                    <span class="custom-file-control"></span>
+                    <div class="invalid-feedback">
+                      Please selected any File.
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label class="custom-control custom-radio">
+                    <input
+                      id="radioStacked2"
+                      name="isShow"
+                      type="checkbox"
+                      class="custom-control-input"
+                      required
+                      checked
+                    />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Ẩn</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-lg-12 col-sm-12 col-12 text-center">
+                <button class="btn btn-info" type="submit">Thêm</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

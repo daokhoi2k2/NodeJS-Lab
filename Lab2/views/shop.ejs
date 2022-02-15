@@ -1,0 +1,35 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container">
+  <div class="row row-cols-3 g-4">
+    <% for (let product of products) { %>
+    <div class="col">
+      <div class="card text-center">
+        <div class="card-header">
+          <h4 style="height: 45px" class="product__title">
+            <a href="/detail/<%= product.id %>">
+              <%= product.title %>
+            </a>
+          </h4>
+        </div>
+        <div class="card-body">
+          <img
+            style="height: 250px"
+            class="img-fluid img-thumbnail"
+            src="images/<%= product.imageURL %>"
+            alt="A Book"
+          />
+          <h5><%= product.price %> VNĐ</h5>
+          <p class="product__description"><%= product.description %></p>
+        </div>
+        <div class="card-footer text-muted">
+          <button class="btn">Chọn</button>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

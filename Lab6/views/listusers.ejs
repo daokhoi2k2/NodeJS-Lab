@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách user</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Danh sách users</h1>
+    <div id="listuser"></div>
+    <script>
+      function xulydulieu(data) {
+        //xử lý data tùy nhu cầu
+        //console.log(data);
+        let str = `
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Email</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>`;
+        for (i in data) {
+          let user = data[i];
+          str += `<tr>
+                <th scope="row">${+i + 1}</th>
+                <td>${user.ho}</td>
+                <td>${user.ten}</td>
+                <td>${user.email}</td>
+                <td>
+                  <a href="/capnhatuser/${user.idUser}">Cập nhật</a>
+                </td>
+              </tr>`;
+        } //for
+
+        str += "</tbody></table>";
+        document.getElementById("listuser").innerHTML += str;
+      }
+      fetch("http://localhost:3000/users/")
+        .then((res) => res.json())
+        .then((data) => {
+          xulydulieu(data);
+        });
+    </script>
+  </body>
+</html>
